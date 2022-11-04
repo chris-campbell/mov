@@ -1,28 +1,28 @@
 import Navbar from "./styles";
 import Image from "next/image";
 
-import { imports } from ".";
+import { Imports } from ".";
 
 export default () => {
   return (
     <Navbar>
       <Navbar.Logo>
-        <a href="/movies">Mov</a>
+        <Imports.Link href="/movies">Mov</Imports.Link>
       </Navbar.Logo>
 
-      <div
+      <Imports.IconButton
         size="large"
         edge="start"
         color="inherit"
         aria-label="menu"
         sx={{ mr: 2 }}
       >
-        <Image src={imports.Search} width={20} height={20} />
-      </div>
+        <Image src={Imports.Search} width={20} height={20} />
+      </Imports.IconButton>
 
       <Navbar.PrimaryLinks>
         <Navbar.WatchList>
-          <a href="/movies/watch-list">Watch list</a>
+          <Imports.Link href="/movies/watch-list">Watch list</Imports.Link>
           <Navbar.WatchCount>3</Navbar.WatchCount>
         </Navbar.WatchList>
 
