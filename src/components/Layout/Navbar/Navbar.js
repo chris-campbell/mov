@@ -1,46 +1,56 @@
 import Navbar from "./styles";
-import Image from "next/image";
-
 import { Imports } from ".";
 
 export default () => {
+  const { IconButton, Image, Link, PeekABooSearch, Search, useState } = Imports;
+
+  const [toggle, setoggle] = useState(false);
+
+  const toggleBar = () => {
+    setoggle(!toggle);
+  };
+
   return (
-    <Navbar>
-      <Navbar.Logo>
-        <Imports.Link href="/movies">Mov</Imports.Link>
-      </Navbar.Logo>
+    <>
+      <Navbar>
+        <Navbar.Logo>
+          <Link href="/movies">Mov</Link>
+        </Navbar.Logo>
 
-      <Imports.IconButton
-        size="large"
-        edge="start"
-        color="inherit"
-        aria-label="menu"
-        sx={{ mr: 2 }}
-      >
-        <Image src={Imports.Search} width={20} height={20} />
-      </Imports.IconButton>
+        <IconButton
+          size="large"
+          edge="start"
+          color="inherit"
+          aria-label="menu"
+          sx={{ mr: 2 }}
+          onClick={toggleBar}
+        >
+          <Image src={Search} width={20} height={20} />
+        </IconButton>
 
-      <Navbar.PrimaryLinks>
-        <Navbar.WatchList>
-          <Imports.Link href="/movies/watch-list">Watch list</Imports.Link>
-          <Navbar.WatchCount>3</Navbar.WatchCount>
-        </Navbar.WatchList>
+        <Navbar.PrimaryLinks>
+          <Navbar.WatchList>
+            <Link href="/movies/watch-list">Watch list</Link>
+            <Navbar.WatchCount>3</Navbar.WatchCount>
+          </Navbar.WatchList>
 
-        <Navbar.Dropdown>
-          <Navbar.Avatar
-            src="https://via.placeholder.com/600/d32776"
-            width={50}
-            height={50}
-            alt="User Avatar"
-          />
-          <Navbar.Menu>
-            <ul>
-              <li>Logout</li>
-              <li>Clear List</li>
-            </ul>
-          </Navbar.Menu>
-        </Navbar.Dropdown>
-      </Navbar.PrimaryLinks>
-    </Navbar>
+          <Navbar.Dropdown>
+            <Navbar.Avatar
+              src="https://via.placeholder.com/600/d32776"
+              width={50}
+              height={50}
+              alt="User Avatar"
+            />
+            <Navbar.Menu>
+              <ul>
+                <li>Logout</li>
+                <li>Clear List</li>
+              </ul>
+            </Navbar.Menu>
+          </Navbar.Dropdown>
+        </Navbar.PrimaryLinks>
+      </Navbar>
+      <PeekABooSearch toggle={toggle} />
+    </>
   );
 };
