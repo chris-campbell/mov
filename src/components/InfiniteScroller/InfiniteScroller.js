@@ -1,7 +1,6 @@
 import React from "react";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { Imports } from ".";
-// import FadeLoader from "react-spinners/FadeLoader";
 
 const InfiniteScroller = ({ query }) => {
   const { status, data, fetchNextPage, hasNextPage } = query;
