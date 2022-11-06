@@ -30,8 +30,6 @@ const GlobalStyles = createGlobalStyle`
       text-decoration: none;
     }
 
-
-
     .infinite-scroll-component {
       overflow: hidden !important;
     }

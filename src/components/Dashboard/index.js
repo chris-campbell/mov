@@ -1,5 +1,5 @@
 import Dashboard from "./Dashboard";
-import InfiniteScroller from "../../features/InfiniteScroller";
+import InfiniteScroller from "../InfiniteScroller";
 import keywordSearch from "./utils/fetchMovies";
 import { useInfiniteQuery } from "react-query";
 
