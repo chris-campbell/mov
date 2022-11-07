@@ -1,8 +1,14 @@
 import { Imports } from ".";
-import MovieItem from "./styles";
 
 const Movie = ({ id, title, poster_path, overview, release_date }) => {
-  const { useDoubleClick, useRouter, useRef, PopupDraw, Poster } = Imports;
+  const {
+    useDoubleClick,
+    useRouter,
+    useRef,
+    PopupDraw,
+    Poster,
+    MovieItem,
+  } = Imports;
 
   const buttonRef = useRef();
   const navigate = useRouter();

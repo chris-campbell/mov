@@ -1,7 +1,8 @@
-import React from "react";
-import PosterImage from "./styles";
+import { Imports } from ".";
 
 const Poster = ({ poster_path }) => {
+  const { BrokenImage, PosterImage } = Imports;
+
   return (
     <>
       {poster_path ? (
@@ -12,7 +13,12 @@ const Poster = ({ poster_path }) => {
           alt="Movie Poster"
         />
       ) : (
-        <Image width={500} height={730} src={BrokenImage} alt="Movie Poster" />
+        <PosterImage
+          width={500}
+          height={730}
+          src={BrokenImage}
+          alt="Movie Poster"
+        />
       )}
     </>
   );
