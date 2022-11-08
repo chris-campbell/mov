@@ -1,6 +1,6 @@
 import Poster from "./Poster";
-import PosterImage from "./styles";
 import BrokenImage from "./img/brokenImg.png";
+import PosterImage from "../../../commons";
 
 export const Imports = { BrokenImage, PosterImage, Poster };
 
