@@ -1,6 +1,6 @@
 import React from "react";
 import axios from "axios";
-import MovieDetails from "../../src/components/MovieDetails/MovieDetails";
+import MovieDetails from "../../src/components/MovieDetails";
 import { getSession } from "next-auth/react";
 
 const MovieDetailsPage = ({ movie, team }) => {

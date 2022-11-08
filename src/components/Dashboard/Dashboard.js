@@ -7,6 +7,7 @@ export default () => {
     InfiniteScroller,
     keywordSearch,
     useInfiniteQuery,
+    PageTitle,
   } = Imports;
   const { search } = useSearch();
 
@@ -24,6 +25,7 @@ export default () => {
 
   return (
     <Dashboard>
+      <PageTitle search={search} />
       <InfiniteScroller query={query} />
     </Dashboard>
   );

@@ -2,12 +2,16 @@ import styled from "styled-components";
 
 const Navbar = styled.div`
   width: 100%;
-  padding: 1.5rem 1rem;
-  display: flex;
-  justify-content: space-between;
+
   max-width: 1200px;
   margin: 0 auto;
+`;
+
+const Wrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
   align-items: center;
+  padding: 1.5rem 1rem;
 `;
 
 const Logo = styled.div`
@@ -87,6 +91,7 @@ export const Dropdown = styled.div`
 
 Navbar.Logo = Logo;
 Navbar.PrimaryLinks = PrimaryLinks;
+Navbar.Wrapper = Wrapper;
 Navbar.WatchList = WatchList;
 Navbar.WatchCount = WatchCount;
 Navbar.Avatar = Avatar;
