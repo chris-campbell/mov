@@ -1,4 +1,3 @@
-import Dashboard from "./styles";
 import { Imports } from ".";
 
 export default () => {
@@ -8,7 +7,9 @@ export default () => {
     keywordSearch,
     useInfiniteQuery,
     PageTitle,
+    DashboardContainer,
   } = Imports;
+
   const { search } = useSearch();
 
   const fetchMovies = async ({ pageParam = 1 }) => {
@@ -24,9 +25,9 @@ export default () => {
   });
 
   return (
-    <Dashboard>
+    <DashboardContainer>
       <PageTitle search={search} />
       <InfiniteScroller query={query} />
-    </Dashboard>
+    </DashboardContainer>
   );
 };

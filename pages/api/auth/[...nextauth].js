@@ -1,4 +1,4 @@
-import NextAuth, { NextAuthOptions } from "next-auth";
+import NextAuth from "next-auth";
 import GoogleProvider from "next-auth/providers/google";
 import { MongoDBAdapter } from "@next-auth/mongodb-adapter";
 import clientPromise from "../../../src/lib/mongodb";
@@ -18,7 +18,6 @@ export const authOptions = {
     }),
   ],
   secret: process.env.JWT_SECRET,
-
   adapter: MongoDBAdapter(clientPromise),
   callbacks: {
     session: async (session) => {

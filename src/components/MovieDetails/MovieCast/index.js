@@ -1,8 +1,8 @@
 import MovieCast from "./MovieCast";
-import Image from "next/image";
-import MovieCastContainer from "./styles/styles";
+import MovieCastContainer from "./styles";
 import CastMember from "../CastMember";
+import Image from "next/image";
 
-export const Imports = { Image, MovieCastContainer, CastMember };
+export const Imports = { Image, CastMember, MovieCastContainer };
 
 export default MovieCast;

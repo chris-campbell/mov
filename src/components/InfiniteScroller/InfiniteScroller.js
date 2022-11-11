@@ -1,10 +1,8 @@
-import React from "react";
-import InfiniteScroll from "react-infinite-scroll-component";
 import { Imports } from ".";
 
 const InfiniteScroller = ({ query }) => {
   const { status, data, fetchNextPage, hasNextPage } = query;
-  const { Movie } = Imports;
+  const { Movie, InfiniteScroll, MovieGridContainer } = Imports;
 
   return (
     <>
@@ -14,24 +12,15 @@ const InfiniteScroller = ({ query }) => {
           next={fetchNextPage}
           hasMore={hasNextPage}
         >
-          <div>
-            {data?.pages.map((page) => (
-              <>
-                <div
-                  style={{
-                    display: "grid",
-                    gridTemplateColumns: "repeat(4, 1fr)",
-                    gap: "1rem",
-                    marginBottom: "1rem",
-                  }}
-                >
-                  {page.results.map((movie) => (
-                    <Movie key={movie.id} {...movie} />
-                  ))}
-                </div>
-              </>
-            ))}
-          </div>
+          {data?.pages.map((page) => (
+            <>
+              <MovieGridContainer>
+                {page.results.map((movie) => (
+                  <Movie key={movie.id} {...movie} />
+                ))}
+              </MovieGridContainer>
+            </>
+          ))}
         </InfiniteScroll>
       )}
     </>

@@ -12,14 +12,14 @@ export default MovieDetailsPage;
 export async function getServerSideProps(context) {
   const session = await getSession(context);
 
-  //   if (!session) {
-  //     return {
-  //       redirect: {
-  //         destination: "/",
-  //         permanent: false,
-  //       },
-  //     };
-  //   }
+  if (!session) {
+    return {
+      redirect: {
+        destination: "/",
+        permanent: false,
+      },
+    };
+  }
 
   const id = context.params.movieId[0];
   const apiUrl = process.env.API_URL;
