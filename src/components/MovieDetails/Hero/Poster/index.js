@@ -1,6 +1,4 @@
-import Poster from "./Poster";
 import PosterImage from "../../../../commons";
+import { useRouter } from "next/router";
 
-export const Imports = { PosterImage };
-
-export default Poster;
+export const Imports = { useRouter, PosterImage };
