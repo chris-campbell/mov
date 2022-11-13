@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import Image from "next/image";
 
 const Navbar = styled.div`
   width: 100%;
@@ -46,7 +47,7 @@ const PrimaryLinks = styled.div`
   gap: 2rem;
 `;
 
-const Avatar = styled.img`
+const Avatar = styled(Image)`
   border-radius: 4rem;
 `;
 

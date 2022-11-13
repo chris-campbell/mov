@@ -11,6 +11,10 @@ export default () => {
     useState,
     useDispatch,
     useSelector,
+    useSession,
+    signOut,
+    persistor,
+    removeAllMovies,
   } = Imports;
 
   const [toggle, setoggle] = useState(false);
@@ -19,6 +23,20 @@ export default () => {
 
   const toggleBar = () => {
     setoggle(!toggle);
+  };
+
+  const purge = async () => {
+    await persistor.purge();
+
+    dispatch(removeAllMovies());
+  };
+
+  const { data: session } = useSession();
+  const { user } = session;
+
+  const signoutUser = () => {
+    purge();
+    signOut();
   };
 
   return (
@@ -42,21 +60,21 @@ export default () => {
 
           <Navbar.PrimaryLinks>
             <Navbar.WatchList>
-              <Link href="/movies/watch-list">Watch list</Link>
+              <Link href="/movies/watch-list">List</Link>
               <Navbar.WatchCount>{watchListCount}</Navbar.WatchCount>
             </Navbar.WatchList>
 
             <Navbar.Dropdown>
               <Navbar.Avatar
-                src="https://via.placeholder.com/600/d32776"
+                src={user.image}
                 width={50}
                 height={50}
                 alt="User Avatar"
               />
               <Navbar.Menu>
                 <ul>
-                  <li>Logout</li>
-                  <li>Clear List</li>
+                  <li onClick={() => signoutUser()}>Logout</li>
+                  <li onClick={() => purge()}>Clear List</li>
                 </ul>
               </Navbar.Menu>
             </Navbar.Dropdown>

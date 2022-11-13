@@ -7,6 +7,8 @@ import { IconButton } from "@mui/material";
 import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { removeAllMovies } from "../../../redux/slices/watcherSlices";
+import { signOut, useSession } from "next-auth/react";
+import { persistor } from "../../../redux/store";
 
 export const Imports = {
   Search,
@@ -18,6 +20,9 @@ export const Imports = {
   useState,
   useSelector,
   useDispatch,
+  useSession,
+  signOut,
+  persistor,
 };
 
 export default Navbar;
