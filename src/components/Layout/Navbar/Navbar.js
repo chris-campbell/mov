@@ -2,9 +2,20 @@ import Navbar from "./styles";
 import { Imports } from ".";
 
 export default () => {
-  const { IconButton, Image, Link, PeekABooSearch, Search, useState } = Imports;
+  const {
+    IconButton,
+    Image,
+    Link,
+    PeekABooSearch,
+    Search,
+    useState,
+    useDispatch,
+    useSelector,
+  } = Imports;
 
   const [toggle, setoggle] = useState(false);
+  const dispatch = useDispatch();
+  const watchListCount = useSelector((state) => state.value).length;
 
   const toggleBar = () => {
     setoggle(!toggle);
@@ -32,7 +43,7 @@ export default () => {
           <Navbar.PrimaryLinks>
             <Navbar.WatchList>
               <Link href="/movies/watch-list">Watch list</Link>
-              <Navbar.WatchCount>3</Navbar.WatchCount>
+              <Navbar.WatchCount>{watchListCount}</Navbar.WatchCount>
             </Navbar.WatchList>
 
             <Navbar.Dropdown>
