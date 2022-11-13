@@ -5,6 +5,8 @@ import { SessionProvider } from "next-auth/react";
 import Layout from "../src/components/Layout";
 import SearchProvider from "../src/context/searchContext";
 import { Hydrate, QueryClient, QueryClientProvider } from "react-query";
+import { Provider } from "react-redux";
+import { store } from "../src/redux/store";
 
 function MyApp({ Component, pageProps }) {
   const [queryClient] = useState(() => new QueryClient());
@@ -13,15 +15,17 @@ function MyApp({ Component, pageProps }) {
     <ThemeProvider theme={theme}>
       <SessionProvider session={pageProps.session}>
         <GlobalStyles />
-        <SearchProvider>
-          <Layout>
-            <QueryClientProvider client={queryClient}>
-              <Hydrate state={pageProps.dehydratedState}>
-                <Component {...pageProps} />
-              </Hydrate>
-            </QueryClientProvider>
-          </Layout>
-        </SearchProvider>
+        <Provider store={store}>
+          <SearchProvider>
+            <Layout>
+              <QueryClientProvider client={queryClient}>
+                <Hydrate state={pageProps.dehydratedState}>
+                  <Component {...pageProps} />
+                </Hydrate>
+              </QueryClientProvider>
+            </Layout>
+          </SearchProvider>
+        </Provider>
       </SessionProvider>
     </ThemeProvider>
   );

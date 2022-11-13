@@ -16,7 +16,7 @@ const InfiniteScroller = ({ query }) => {
             <>
               <MovieGridContainer>
                 {page.results.map((movie) => (
-                  <Movie key={movie.id} {...movie} />
+                  <Movie key={movie.id} {...movie} movie={movie} />
                 ))}
               </MovieGridContainer>
             </>

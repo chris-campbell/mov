@@ -1,6 +1,6 @@
 import { Imports } from ".";
 
-const Movie = ({ id, title, poster_path, overview, release_date }) => {
+const Movie = ({ id, title, poster_path, overview, release_date, movie }) => {
   const {
     useDoubleClick,
     useRouter,
@@ -8,10 +8,16 @@ const Movie = ({ id, title, poster_path, overview, release_date }) => {
     PopupDraw,
     Poster,
     MovieItem,
+    addMovie,
+    useDispatch,
+    useSelector,
   } = Imports;
 
+  const dispatch = useDispatch();
   const buttonRef = useRef();
   const navigate = useRouter();
+
+  const movies = useSelector((s) => s.value);
 
   useDoubleClick({
     onSingleClick: () => navigateToMovie(),
@@ -23,6 +29,16 @@ const Movie = ({ id, title, poster_path, overview, release_date }) => {
 
   const navigateToMovie = () => {
     navigate.push(`/movies/${id}`);
+  };
+
+  const addMovietoWatchList = () => {
+    const isMovie = movies.find((m) => m.id === id);
+
+    if (isMovie)
+      return toast.warn("Movie already in list.", { position: "bottom-right" });
+
+    dispatch(addMovie(movie));
+    // removeMoveNotify();
   };
 
   return (

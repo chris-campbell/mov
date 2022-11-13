@@ -5,6 +5,8 @@ import Poster from "./Poster";
 import MovieItem from "./styles";
 import { useRouter } from "next/router";
 import { useRef } from "react";
+import { addMovie } from "../../redux/slices/watcherSlices";
+import { useDispatch, useSelector } from "react-redux";
 
 export const Imports = {
   useDoubleClick,
@@ -13,6 +15,9 @@ export const Imports = {
   PopupDraw,
   Poster,
   MovieItem,
+  addMovie,
+  useDispatch,
+  useSelector,
 };
 
 export default Movie;
