@@ -11,6 +11,8 @@ const Movie = ({ id, title, poster_path, overview, release_date, movie }) => {
     addMovie,
     useDispatch,
     useSelector,
+    toast,
+    useCallback,
   } = Imports;
 
   const dispatch = useDispatch();
@@ -31,6 +33,20 @@ const Movie = ({ id, title, poster_path, overview, release_date, movie }) => {
     navigate.push(`/movies/${id}`);
   };
 
+  const removeMoveNotify = useCallback(
+    () =>
+      toast(
+        ({}) => (
+          <div>
+            Added <span style={{ fontWeight: 600 }}>{movie.title}</span> to
+            watch list.
+          </div>
+        ),
+        { position: "bottom-right" }
+      ),
+    [movie.title]
+  );
+
   const addMovietoWatchList = () => {
     const isMovie = movies.find((m) => m.id === id);
 
@@ -38,7 +54,7 @@ const Movie = ({ id, title, poster_path, overview, release_date, movie }) => {
       return toast.warn("Movie already in list.", { position: "bottom-right" });
 
     dispatch(addMovie(movie));
-    // removeMoveNotify();
+    removeMoveNotify();
   };
 
   return (

@@ -7,6 +7,8 @@ import { useRouter } from "next/router";
 import { useRef } from "react";
 import { addMovie } from "../../redux/slices/watcherSlices";
 import { useDispatch, useSelector } from "react-redux";
+import { toast } from "react-toastify";
+import { useCallback } from "react";
 
 export const Imports = {
   useDoubleClick,
@@ -18,6 +20,8 @@ export const Imports = {
   addMovie,
   useDispatch,
   useSelector,
+  toast,
+  useCallback,
 };
 
 export default Movie;
