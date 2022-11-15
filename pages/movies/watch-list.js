@@ -1,5 +1,4 @@
-import React from "react";
-import WatchList from "../../src/components/WatchList.js";
+import WatchList from "../../src/components/WatchList";
 import { getSession } from "next-auth/react";
 
 const watchListPage = ({ session }) => {

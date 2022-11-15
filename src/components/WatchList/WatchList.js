@@ -5,10 +5,17 @@ const ListCount = dynamic(() => import("./ListCount/ListCount"), {
   ssr: false,
 });
 
-const WatchList = () => {
-  const { BackButton, useSelector } = Imports;
+const WatchList = ({ session }) => {
+  const { BackButton, useSelector, WatchWall, useEffect, useRouter } = Imports;
 
   const list = useSelector((state) => state.value);
+  const router = useRouter();
+
+  useEffect(() => {
+    if (!session) {
+      router.push("/");
+    }
+  }, []);
 
   return (
     <div
@@ -16,6 +23,8 @@ const WatchList = () => {
     >
       <BackButton />
       <ListCount listSize={list?.length} />
+
+      <WatchWall list={list} />
     </div>
   );
 };

@@ -2,6 +2,7 @@ import styled from "styled-components";
 import Link from "next/link";
 
 const BackButtonContainer = styled.div`
+  margin-top: 2rem;
   svg {
     font-size: 1.1rem;
   }
